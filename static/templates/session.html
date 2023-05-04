@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block title %}Session Data{% endblock %}
+
+{% block content %}
+    <div class="container">
+        <h1 class="mt-5">Session Data</h1>
+        <table class="table table-bordered mt-3">
+            <thead>
+                <tr>
+                    <th>Key</th>
+                    <th>Value</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for key, value in session_data.items() %}
+                    <tr>
+                        <td>{{ key }}</td>
+                        <td>{{ value }}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+{% endblock %}

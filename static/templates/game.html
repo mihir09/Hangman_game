@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block title %}Hangman with {{ player_name }}{% endblock %}
+
+{% block content %}
+    <div class="container">
+        <h1 class="mt-5">Hangman</h1>
+        <p><strong>Word:</strong> {% for letter in word_display %}{{ letter }} {% endfor %}</p>
+        <p><strong>Remaining letters to Guess:</strong> {{ remaining_letters }}</p>
+        <p><strong>Guessed Letters:</strong></p>
+        <p><strong>Incorrect Letters:</strong> {% for letter in incorrect_letters %}{{ letter }} {% endfor %}</p>
+        <p><strong>Correct Letters:</strong> {% for letter in correct_letters %}{{ letter }} {% endfor %}</p>
+        <p><strong>Chances:</strong> {{ chances }}</p>
+
+        <form action="{{ url_for('play_game',player_name=player_name) }}" method="post">
+            <div class="mb-3">
+                <label for="letter" class="form-label">Enter a letter:</label>
+                <input type="text" id="letter" name="letter" class="form-control" maxlength="1" required>
+            </div>
+            <div class="d-flex justify-content-center mt-3">
+                <button type="submit" class="btn btn-primary mr-2">Guess</button>
+                <button type="submit" class="btn btn-secondary mx-2">Reset</button>
+                <button type="submit" class="btn btn-secondary ml-2">Close</button>
+            </div>
+        </form>
+    </div>
+{% endblock %}

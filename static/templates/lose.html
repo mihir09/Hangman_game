@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block title %}Hangman - You Lose!{% endblock %}
+
+{% block content %}
+    <div class="container">
+        <h1 class="mt-5">Sorry, you lost!</h1>
+        <p>The word was: {{ word }}</p>
+
+        <form action="{{ url_for('reset_game',player_name=player_name) }}" method="post" class="mt-3">
+            <button type="submit" class="btn btn-primary">Play Again</button>
+        </form>
+    </div>
+{% endblock %}

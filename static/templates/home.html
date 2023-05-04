@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block title %}Hangman{% endblock %}
+
+{% block content %}
+    <div class="container">
+        <h1 class="mt-5">Hangman</h1>
+        <p>Welcome to the Hangman game!</p>
+
+        <form action="/" method="post">
+            <div class="mb-3">
+                <label for="name" class="form-label">Enter your first name to begin:</label>
+                <input type="text" id="name" name="name" class="form-control" maxlength="10" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Start Game</button>
+        </form>
+    </div>
+{% endblock %}
